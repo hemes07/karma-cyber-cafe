@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="gu">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>કર્મા સાયબર કેફે - ઑનલાઇન સેવા વિનંતી</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      background-color: #f0f8ff;
+      margin: 0;
+      padding: 0;
+      color: #003366;
+    }
+    header {
+      background-color: #003366;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+    .container {
+      padding: 20px;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    h2 {
+      text-align: center;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+    }
+    label {
+      margin-top: 15px;
+      font-weight: bold;
+    }
+    input, select, textarea {
+      padding: 10px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 16px;
+    }
+    .whatsapp-button {
+      margin-top: 20px;
+      padding: 12px;
+      background-color: #25D366;
+      color: white;
+      text-align: center;
+      text-decoration: none;
+      border-radius: 4px;
+      font-size: 16px;
+    }
+    footer {
+      text-align: center;
+      padding: 10px;
+      background-color: #003366;
+      color: white;
+      font-size: 14px;
+      margin-top: 30px;
+    }
+  </style>
+  <script>
+    function sendToWhatsApp() {
+      var name = document.getElementById("name").value.trim();
+      var phone = document.getElementById("phone").value.trim();
+      var service = document.getElementById("service").value.trim();
+      var message = document.getElementById("message").value.trim();
+
+      var extraDetail = service === "અન્ય" ? `\n🗒️ વિગત: ${message || 'કઈ વિગત આપવામાં આવી નથી'}` : "";
+
+      var whatsappMessage = `📩 નવો ઓર્ડર મળ્યો છે:\n-------------------------\n👤 નામ: ${name}\n📞 મોબાઇલ: ${phone}\n📌 સેવા: ${service}${extraDetail}\n-------------------------`;
+
+      var whatsappURL = "https://wa.me/918153074332?text=" + encodeURIComponent(whatsappMessage);
+      window.open(whatsappURL, '_blank');
+    }
+  </script>
+</head>
+<body>
+  <header>
+    <h1>કર્મા સાયબર કેફે</h1>
+    <p>તમામ પ્રકારની ઑનલાઇન સેવાઓ અહી ઉપલબ્ધ છે</p>
+  </header>
+
+  <div class="container">
+    <h2>સેવા માટે વિનંતી કરો</h2>
+    <form onsubmit="event.preventDefault(); sendToWhatsApp();">
+      <label for="name">તમારું નામ:</label>
+      <input type="text" id="name" name="name" required>
+
+      <label for="phone">મોબાઇલ નંબર:</label>
+      <input type="tel" id="phone" name="phone" required>
+
+      <label for="service">સેવા પસંદ કરો:</label>
+      <select id="service" name="service">
+        <option value="આધાર કાર્ડ સુધારણા">આધાર કાર્ડ સુધારણા</option>
+        <option value="પેન કાર્ડ અરજી">પેન કાર્ડ અરજી</option>
+        <option value="સરકારી નોકરી ફૉર્મ">સરકારી નોકરી ફૉર્મ</option>
+        <option value="શિષ્યવૃત્તિ ફૉર્મ">શિષ્યવૃત્તિ ફૉર્મ</option>
+        <option value="પાસપોર્ટ અરજી">પાસપોર્ટ અરજી</option>
+        <option value="એડમિશન ફૉર્મ">એડમિશન ફૉર્મ</option>
+        <option value="સરકારી યોજનાઓ">સરકારી યોજનાઓ</option>
+        <option value="અન્ય">અન્ય</option>
+      </select>
+
+      <label for="message">વિગત લખો:</label>
+      <textarea id="message" name="message" rows="4"></textarea>
+
+      <a href="#" class="whatsapp-button" onclick="sendToWhatsApp()">WhatsApp દ્વારા મોકલો</a>
+    </form>
+  </div>
+
+  <footer>
+    સંપર્ક: 8153074332 | કર્મા સાયબર કેફે
+  </footer>
+</body>
+</html>
